@@ -35,12 +35,12 @@ class bankloan(models.Model):
     loan_amount=models.IntegerField()
     email=models.EmailField()
 
+class userAdmin(admin.ModelAdmin):
+    list_display=('customer_name','customer_id','loan_no','loan_amount','email')
 
  admin.py
 
-class userAdmin(admin.ModelAdmin):
-    list_display=('customer_name','customer_id','loan_no','loan_amount','email')
-    from django.contrib import admin
+ from django.contrib import admin
 from .models import bankloan,userAdmin
 admin.site.register(bankloan,userAdmin)
 
